@@ -1,0 +1,56 @@
+  <!DOCTYPE html>
+  <html lang="pt-br" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>JOGO DA MÉMORIA</title>
+    <link rel="stylesheet" href="vendor/twitter/bootstrap3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.css"/>  
+  </head>
+  <body>
+  <div class="background"></div>
+  <div class="container" ng-controller="memoria">
+      <div class="row ">
+          <div class="col-md-12 ">
+                <div class="col-md-8">
+                    <h1 class="text-center ">JOGO DA MÉMORIA</h1>                    
+                </div>
+                <div class="col-md-2">
+                    <h2 class="text-center" ng-bind="nivel"></h2>                  
+                </div>
+                <div class="col-md-2">                
+                    <h3 class="glyphicon glyphicon-time text-center" ng-bind="call"></3>                               
+                </div>                                          
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-8" role="alert" ng-show="booleano">
+              <span class="label label-danger tamanho"  ng-bind="msg" ng-show="booleano"></span>
+          </div>          
+          <div class="col-md-8 " role="alert" ng-show="booleano1">
+              <span class="label label-success tamanho" ng-show="booleano1" ng-bind="msg"></span>
+          </div>
+          <div class="col-md-4" ng-show="botao">
+              <button class="btn btn-success" type="submit" ng-click="reiniciar()" ng-show="botao">Reiniciar</button>
+          </div>                    
+      </div>      
+      <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-3 size" ng-repeat="imagem in imagens track by $index">
+                  <img ng-src="{{imagem.atual}}" class="size" ng-click="flip($index)"/>                
+              </div> 
+          </div>
+      </div>         
+      </div>         
+</div>
+
+    <script src="public/js/angular/angular.min.js"></script>
+    <script src="public/js/jquery/jquery-1.12.1.min.js"></script>
+    <script src="vendor/twitter/bootstrap3.3.6/js/bootstrap.min.js"></script>
+    <script src="public/js/angular/config.js"></script>
+    <script src="public/js/angular/controllers/controllers.js"></script>
+  </body>
+  </html>
+ 
